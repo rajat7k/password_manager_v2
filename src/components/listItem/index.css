@@ -1,0 +1,43 @@
+.password-detail-card{
+    display: flex;
+    align-items: center;
+    padding: 15px 15px 15px 10px;
+    border: 1px solid #ffffff;
+    justify-content: space-between;
+    margin: 20px;
+    border-radius: 10px;
+    color: #ffffff;
+}
+.avtar{
+    background-color: blue;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    text-align: center;
+    padding-top: 2px;
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.details{
+    line-height: 8px;
+    width: 75px;
+    margin: 0px 50px 0px 6px;
+}
+.details p:last-child{
+    margin-bottom:3px ;
+}
+
+.stars-img{
+    width: 100px;
+    /* margin: 8px 0px; */
+}
+
+.delete-btn{
+    background: transparent;
+    border: 0px;
+}
+
+.delete-icon{
+    width: 22px;
+}

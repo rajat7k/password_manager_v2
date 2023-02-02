@@ -1,0 +1,59 @@
+.password-input-container{
+    background-color:  #5763a5;
+    display: flex;
+    width: 90%;
+    margin: auto;
+    border-radius: 5px;
+    padding: 20px 18px 30px 18px;
+    margin-top: 30px;
+}
+
+.password-input-card{
+    margin: 20px;
+    background-color: #454f84;
+    width: 500px;
+    padding: 20px 15px;
+    border-radius: 10px;
+}
+
+.add-password-heading{
+    color: white;
+}
+
+.password-manager-img{
+    width: 400px;
+}
+
+.input-container{
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    /* padding: 5px 0px; */
+    border-radius: 2px;
+    
+}
+.input-icon{
+    width: 15px;
+    margin: 5px 3px 5px 10px;
+}
+.input-field{
+    width: 90%;
+    border: 0px;
+    border-left: 1px solid black;
+    padding: 8px 5px;
+    margin-left: 5px;
+}
+.input-field:focus{
+    outline: none;
+}
+
+.password-add-btn{
+    background-color: #0b69ff;
+    border: 0px;
+    color: #ffffff;
+    padding: 5px 22px;
+    border-radius: 2px;
+    cursor: pointer;
+    float: right;
+}
