@@ -5,31 +5,44 @@ import './index.css'
 
 export default class MainPage extends Component {
 
-    state={savedPasswordList:[],id:0};
 
-    handleAddBtnClick=(passwordDetails)=>{
+    state = { savedPasswordList: [], searchInputPasswordList: [], id: 0 };
 
-        const passwordDetailObject={
-            id:this.state.id,
-            website:passwordDetails.website,
-            username:passwordDetails.username,
-            password:passwordDetails.password,
+    handleAddBtnClick = (passwordDetails) => {
+
+        const passwordDetailObject = {
+            id: this.state.id,
+            website: passwordDetails.website,
+            username: passwordDetails.username,
+            password: passwordDetails.password,
         }
-        
 
-        const arr=this.state.savedPasswordList;
-        if(passwordDetails.website!=='' && passwordDetails.username!=='' && passwordDetails.password!=='')
-        {
+
+        const arr = this.state.savedPasswordList;
+        if (passwordDetails.website !== '' && passwordDetails.username !== '' && passwordDetails.password !== '') {
             arr.push(passwordDetailObject);
         }
 
-        this.setState({savedPasswordList:arr,id:this.state.id+1});
+        this.setState({ savedPasswordList: arr, id: this.state.id + 1 });
+        this.setState({ searchInputPasswordList: arr });
     }
 
     handleDeleteItem = (id) => {
-        console.log("handleDelete",id);
+        console.log("handleDelete", id);
         this.setState({ savedPasswordList: this.state.savedPasswordList.filter((obj) => obj.id !== id) });
-      }
+        this.setState({ searchInputPasswordList: this.state.searchInputPasswordList.filter((obj) => obj.id !== id) });
+    }
+
+    inputChangeHandler = (event) => {
+        const listForSearchItem = this.state.searchInputPasswordList;
+        const value = event.target.value;
+        this.setState({
+            savedPasswordList: listForSearchItem.filter(item => {
+                return item.website.includes(value);
+            })
+        })
+        console.log(value);
+    }
 
     render() {
         console.log(this.state.savedPasswordList)
@@ -40,7 +53,7 @@ export default class MainPage extends Component {
 
                 <PasswordInputCard handleAddBtnClick={this.handleAddBtnClick} />
 
-                <PasswordShowCard onClick={this.handleDeleteItem}  passwordDetailsList={this.state.savedPasswordList} />
+                <PasswordShowCard inputChangeHandler={this.inputChangeHandler} onClick={this.handleDeleteItem} passwordDetailsList={this.state.savedPasswordList} />
 
             </div>
         )

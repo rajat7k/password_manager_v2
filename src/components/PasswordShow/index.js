@@ -5,16 +5,11 @@ import './index.css'
 export default class PasswordShowCard extends Component {
 
   state = {
-    passwordDetailsList: this.props.passwordDetailsList, isShowPassword: false,
+    isShowPassword: false,
   }
 
   inputChangeHandler = (event) => {
-    const value = event.target.value;
-    this.setState({
-      passwordDetailsList: this.props.passwordDetailsList.filter(item => {
-        return item.website.includes(value);
-      })
-    })
+    this.props.inputChangeHandler(event);
   }
 
   handleCheckBox = () => {
@@ -22,7 +17,6 @@ export default class PasswordShowCard extends Component {
   }
 
   render() {
-    console.log("showPass", this.props);
     return (
       <div className="show-password-container">
 
